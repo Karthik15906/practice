@@ -1,2 +1,2 @@
-createing and practicing git
+creating and practicing git
 create a feature
