@@ -59,3 +59,18 @@ print(df1['a':'c'])
 #slicing by index
 '''it does not include step when using index'''
 print(df1[0:3])
+
+# we can also access with iloc and loc methods in pandas
+# here iloc is index based, it does not include step when using index
+print(df1.iloc[0:3])
+
+# now with loc , it includes the step when using label
+print(df1.loc['a':'c'])
+
+# to access 1st n elements from first we use head
+print('head')
+print(df1.head(4))
+
+# to access 1st n elements from last we use tail
+print('tail')
+print(df1.tail(4))
