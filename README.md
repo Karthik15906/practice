@@ -4,6 +4,7 @@ This repository contains my practice and learning of the Pandas library in Pytho
 
 ## Topics Covered
 
+- Series
 - DataFrames
 - Filtering
 - Sorting
