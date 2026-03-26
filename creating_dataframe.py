@@ -71,7 +71,7 @@ first line -> column names
 next each line -> one row of data
 '''
 
-df3=pd.read_csv('pandas-practice\data1_dataframe.csv')
+df3=pd.read_csv('pandas-practice/data_dataframe/data1_dataframe.csv')
 print(df3)
 
 '''
@@ -84,17 +84,17 @@ json is heavily used in
 -> ML pipelines
 '''
 
-df4=pd.read_json('pandas-practice\data2_dataframe.json')
+df4=pd.read_json('pandas-practice/data_dataframe/data2_dataframe.json')
 print(df4)
 
 # nested json (common in API's)
 # this API format will not directly give clean dataframe
 # to handle this we use .json_normalize
 
-df5=pd.read_json('pandas-practice\data3_dataframe.json')
+df5=pd.read_json('pandas-practice/data_dataframe/data3_dataframe.json')
 print(df5)
 import json
-with open('pandas-practice\data3_dataframe.json') as f:
+with open('pandas-practice/data_dataframe/data3_dataframe.json') as f:
     data=json.load(f)
 df5=pd.json_normalize(data['students'])
 print(df5)
