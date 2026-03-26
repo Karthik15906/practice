@@ -13,6 +13,8 @@ df1=pd.Series(lst)
     4       5
 '''
 print(df1)
+
+
 #series with custom indexes
 df1=pd.Series(lst,['a','b','c','d','e'])
 '''
@@ -25,6 +27,8 @@ df1=pd.Series(lst,['a','b','c','d','e'])
     e    5
 '''
 print(df1)
+
+
 #creating a series from dictionary
 data = {'apple': 5, 'banana': 3, 'cherry': 8}
 s = pd.Series(data)
@@ -33,6 +37,8 @@ print(s)
 # banana    3
 # cherry    8
 # dtype: int64
+
+
 #now for scaler
 data1=pd.Series(100,index=['a','b','c'])
 print(data1)
