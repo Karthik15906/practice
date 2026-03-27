@@ -91,3 +91,40 @@ print(string1.str.contains('a',na=False))
     query() is not meant for series, it is designed for dataframes
     still, we can use it with series but rarely used
 '''
+df=pd.Series([10,20,30,40,50,60,70,80,90,100],name='values')
+df=df.to_frame()
+# to_frame() converts a series to dataframe
+# cuz some operations only work in dataframe
+print(df.query('values>40'))
+
+''' 9. Filtering with Functions (apply()) '''
+'''
+    apply() :
+    It applies a function to each element in a Series.
+    Think:
+    “Take every value → run some logic → return result”
+    ex:
+    s = pd.Series(['apple', 'banana', 'kiwi'])
+    s.apply(lambda x: x.upper())
+
+    output
+    ----------
+    APPLE
+    BANANA
+    KIWI
+
+    When to use apply()
+        we Use it when:
+        Logic is custom
+        Built-in methods don’t exist
+
+    Performance insight
+    apply() = Python loop (slower)
+    Pandas operations = optimized (faster)
+    👉 So:
+    Use apply() only when necessary
+'''
+print(s[s.apply(lambda x: x%20 == 0)])
+
+
+''' 10. Filtering Missing Values '''
