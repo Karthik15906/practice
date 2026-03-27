@@ -128,3 +128,30 @@ print(s[s.apply(lambda x: x%20 == 0)])
 
 
 ''' 10. Filtering Missing Values '''
+
+# we can filter missing values with  dropna() and notna() 
+# these are two small functions but super important when working with real data
+
+s=pd.Series([10,None,30,None,50])
+print(s[s.notna()])
+
+# dropna() -> removes missing values completely
+# we should use inplace=True to change original series
+print(s.dropna())
+
+# additional:
+# isna() is opposite to the above it returns True for missing values
+print(s.isna())
+
+# fillna() -> is what you use when you don't want to drop missing values, but replace them
+# with something meaningful
+print(s.fillna(0)) # inplace can be applied
+print(s.fillna(0,limit=1)) # limit is applied to only fill first missing values
+
+
+''' 11. filtering using boolean series directly'''
+
+# you can create a boolean mask first
+s=pd.Series([10,20,30,40,50,60,70,80,90,100])
+mask=s>50
+print(s[mask])
