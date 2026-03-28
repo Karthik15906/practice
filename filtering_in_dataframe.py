@@ -67,3 +67,34 @@ print(df.query("marks > 50 and marks < 90"))
 print(df[df['name'].isin(['karthik','anu'])])
 # Useful when checking multiple values
 
+'''between() (Range Filtering)'''
+# inclusive
+print(df[df['marks'].between(50,90)])
+
+'''String Filtering (str methods)'''
+
+print(df[df['name'].str.contains('a')])
+print(df[df['name'].str.startswith('a')])
+print(df[df['name'].str.endswith('a')])
+
+'''Null Filtering isna() / isnull()'''
+
+print(df[df['marks'].isna()])
+print(df[df['marks'].isnull()])
+print(df[df['marks'].notna()])
+
+'''Filtering with apply() (Advanced)'''
+
+print(df[df['marks'].apply(lambda x :  x>50)])
+# Slower, but useful for complex logic
+
+'''Index-Based Filtering'''
+
+print(df[df.index > 2])
+
+
+'''Filtering Columns'''
+
+print(df.filter(items=['name','marks']))
+# with pattern
+print(df.filter(like='ma'))
