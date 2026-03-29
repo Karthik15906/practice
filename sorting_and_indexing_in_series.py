@@ -72,8 +72,35 @@ print(s.sort_values(na_position='first'))  # Output: b     NaN#         a    30.
     Important: Rank is NOT Index
     Index → position in Series
     Rank → position after sorting values
+    rank() = “What position would this value get if sorted?”
     rank() tells you where each value stands compared to others.
 
 '''
 s = pd.Series([100, 200, 100])
 print(s.rank())
+print(s.rank(method='average'))
+print(s.rank(method='min')) #duplicates get lowest rank
+print(s.rank(method='max')) # duplicates get highest rank
+print(s.rank(method='dense'))  #no gaps in ranking
+
+
+
+'''Reindexing (VERY IMPORTANT)
+👉 It changes the index labels of a Series to what you specify.
+Change index order or add new labels
+And while doing that:
+If a label exists → it keeps the value
+If a label doesn’t exist → it puts NaN
+'''
+print(s.reindex(['a','b','c'])) 
+s = pd.Series([100, 200, 100],index=['a','b','c'])
+print(s.reindex(['b','a','d']))  # Output: b    200.0#         a    100.0#         d      NaN
+'''reindex() follows your order, not the original order.'''
+print(s.reindex(['a','b','c','d'], fill_value=0))
+'''Dropping Values'''
+print(s.reindex(['a','c']))
+'''👉 reindex() =
+“I want my Series to follow this exact index list”'''
+
+
+'''Index Properties'''
