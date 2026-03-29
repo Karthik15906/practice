@@ -102,5 +102,15 @@ print(s.reindex(['a','c']))
 '''👉 reindex() =
 “I want my Series to follow this exact index list”'''
 
+'''Reset Index
+Converts Series → DataFrame
+'''
+print(s.reset_index())  # Output:   index    0#         0     a  100#         1     b  200#         2     c  100
 
 '''Index Properties'''
+# s.index        # get index
+# s.values       # get values
+
+
+'''Conditional + Sorting Combo (Real Use Case)'''
+print(s[s > 10].sort_values())
