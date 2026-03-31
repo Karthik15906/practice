@@ -78,3 +78,39 @@ print(df)
 
 '''Sorting Techniques'''
 '''Sort by Values (Column-wise)'''
+
+print(df.sort_values(by='marks'))
+
+# decending
+print(df.sort_values(by='marks',ascending=False))
+
+
+'''Multiple columns'''
+print(df.sort_values(by=['marks','name']))
+
+
+'''Sort by Index'''
+# row index
+print(df.sort_index())
+
+# column index
+print(df.sort_index(axis=1))
+
+
+'''Handling Missing Values in Sorting'''
+print(df.sort_values(by='marks',na_position='first'))
+
+
+'''Reindex (VERY IMPORTANT)'''
+# reorder rows
+print(df.reindex(['s3','s1','s2']))
+
+# add new row
+print(df.reindex(['s1','s2','s3','s4']))
+# s4 -> nan
+
+
+'''Reset Index'''
+# moves index into column
+print(df.reset_index())
+
