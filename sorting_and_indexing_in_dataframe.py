@@ -51,3 +51,30 @@ print(df.iat[0,1])
 
 
 '''Boolean Indexing (VERY IMPORTANT)'''
+
+print(df[df['marks']>80])
+
+# Multiple conditions
+print(df[(df['marks']>80) & (df['name']=='A')])
+
+
+'''Multiple conditions'''
+
+print(df.loc['s1':'s2'])
+
+print(df.iloc[0:2])
+
+
+'''Fancy Indexing'''
+
+print(df.loc[['s3','s1']])
+print(df.iloc[[2,0]])
+
+
+'''Setting Values (important)'''
+df.loc['s1','marks']=90
+print(df)
+
+
+'''Sorting Techniques'''
+'''Sort by Values (Column-wise)'''
