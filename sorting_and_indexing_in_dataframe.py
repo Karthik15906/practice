@@ -114,3 +114,23 @@ print(df.reindex(['s1','s2','s3','s4']))
 # moves index into column
 print(df.reset_index())
 
+
+'''Set Index'''
+
+print(df.set_index('name'))
+
+
+'''Ranking in DataFrame
+->It tells you the position of each value after sorting.
+Step-by-step thinking
+1. Sort values
+20 → 1st  
+30 → 2nd  
+50 → 3rd  
+2. Put ranks back in original order
+50 → 3  
+20 → 1  
+30 → 2  
+'''
+
+print(df['marks'].rank(ascending=False))
