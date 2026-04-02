@@ -4,7 +4,7 @@ id,name,age,gender,city,salary,join_date
 3,Sam Brown,,Male,Chicago,55000,2020-07-10
 4,Alice Johnson,28,Female,,62000,2019-03-25
 5,Bob Lee,35,M,San Francisco,,2021-11-01
-6,Chris Evans,50,Male,Boston,70000,2022-06-30
+6,Chris Evans,-5,Male,Boston,70000,2022-06-30
 7,John Doe,25,Male,New York,50000,2022-01-15
 8,Emily Davis,40,Female,Seattle,80000,
 9,Michael Scott,,M,Scranton,65000,2020-09-15

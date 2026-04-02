@@ -64,3 +64,65 @@ Mode = the value that appears most frequently.
 '''
 new_df=df.fillna({'age':df['age'].mean(),'salary':df['salary'].median()})
 print(new_df)
+
+
+'''
+Data of Wrong Format
+Cells with data of wrong format can make it difficult, or even impossible, to analyze data.
+To fix it, you have two options: remove the rows, or convert all cells in the columns into the same format.
+
+In our Data Frame, we have one cells with the wrong format Check out row 2 the 'join_date' column should be a string that represents a date
+to convert all cells in the 'Date' column into dates.
+Pandas has a to_datetime() method for this
+'''
+
+df['join_date']=pd.to_datetime(df['join_date'],errors='coerce')
+print(df)
+'''The errors='coerce' argument will replace any cells with wrong format with NaT (Not a Time) instead of throwing an error.
+)
+
+👉 it means:
+
+“If Pandas cannot convert a value, don’t throw an error — just replace it with NaT (missing value).”
+Think of it like this
+Valid date → converted normally ✅
+Invalid date → becomes NaT instead of crashing ❌➡️✔️
+'''
+# new_df=df.dropna()
+new_df['join_date']=pd.to_datetime(new_df['join_date'],format='mixed',errors='coerce')
+print(new_df)
+'''format tells Pandas:
+
+“This is the exact structure of my date string — parse it using this pattern.”
+
+pd.to_datetime('15-01-2022', format='%d-%m-%Y')
+
+👉 Pandas reads it like:
+
+%d → day → 15
+%m → month → 01
+%Y → year → 2022
+
+✅ Result: 2022-01-15
+
+Why use format?
+1. Faster parsing
+If you specify format, Pandas doesn’t have to guess.
+
+2. More strict (important)
+If the format doesn’t match → it fails (or becomes NaT with coerce)
+'''
+
+
+''' Fixing Wrong Data
+Wrong Data
+"Wrong data" does not have to be "empty cells" or "wrong format", it can just be wrong, like if someone registered "199" instead of "1.99".
+
+Sometimes you can spot wrong data by looking at the data set, because you have an expectation of what it should be.
+
+If you take a look at our data set, you can see that in row 6, the age is -5, which is not possible for an employee. So we can fix it by replacing it with a more reasonable value, like 25.
+'''
+
+'''Replacing Values
+One way to fix wrong values is to replace them with something else.
+'''
