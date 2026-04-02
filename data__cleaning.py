@@ -31,9 +31,36 @@ new_df=df.dropna()
 print(new_df)
 # rows containing null values has been removed from the dataframe.
 
+# drops columns with missing values
+new_df=df.dropna(axis=1)        # drops columns with missing value
+print(new_df)
+
 '''
 Replace Empty Values
 Another way of dealing with empty cells is to insert a new value instead.
 
 This way you do not have to delete entire rows just because of some empty cells.
+
+The fillna() method allows us to replace empty cells with a value.
 '''
+new_df=df.fillna(0)
+print(new_df)
+
+'''
+To replace Only For Specified Columns 
+To only replace empty values for one column, specify the column name for the DataFrame.
+'''
+new_df=df.fillna({'city':'unknown','age':100})
+print(new_df)
+
+'''
+Replace Using Mean, Median, or Mode
+A common way to replace empty cells, is to calculate the mean, median or mode value of the column.
+
+Pandas uses the mean() median() and mode() methods to calculate the respective values for a specified column.
+Mean = the average value (the sum of all values divided by number of values).
+Median = the value in the middle, after you have sorted all values ascending.
+Mode = the value that appears most frequently.
+'''
+new_df=df.fillna({'age':df['age'].mean(),'salary':df['salary'].median()})
+print(new_df)
