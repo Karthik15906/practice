@@ -8,4 +8,6 @@ id,name,age,gender,city,salary,join_date
 7,John Doe,25,Male,New York,50000,2022-01-15
 8,Emily Davis,40,Female,Seattle,80000,
 9,Michael Scott,,M,Scranton,65000,2020-09-15
-10,Sarah Connor,32,Female,los angeles,72000,2021-12-01
+7,John Doe,25,Male,New York,50000,2022-01-15
+11,Sarah Connor,32,Female,los angeles,72000,2021-12-01
+3,Sam Brown,,Male,Chicago,55000,2020-07-10

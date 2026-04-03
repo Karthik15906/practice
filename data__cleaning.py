@@ -35,6 +35,12 @@ print(new_df)
 new_df=df.dropna(axis=1)        # drops columns with missing value
 print(new_df)
 
+'''Removing Rows
+The result from the converting in the example above gave us a NaT value, which can be handled as a NULL value, and we can remove the row by using the dropna() method.
+'''
+
+print(df.dropna(subset=['join_date']))
+
 '''
 Replace Empty Values
 Another way of dealing with empty cells is to insert a new value instead.
@@ -123,6 +129,50 @@ Sometimes you can spot wrong data by looking at the data set, because you have a
 If you take a look at our data set, you can see that in row 6, the age is -5, which is not possible for an employee. So we can fix it by replacing it with a more reasonable value, like 25.
 '''
 
+
 '''Replacing Values
 One way to fix wrong values is to replace them with something else.
 '''
+df.loc[5,'age']=25
+print(df)
+'''
+For small data sets you might be able to replace the wrong data one by one, but not for big data sets.
+
+To replace wrong data for larger data sets you can create some rules, e.g. set some boundaries for legal values, and replace any values that are outside of the boundaries.
+'''
+df=pd.read_csv('pandas-practice/data_dataframe/employee_data.csv')
+for x in df.index:
+    if df.loc[x,'age']<0:
+        df.loc[x,'age']=25
+print(df)
+
+'''Removing Rows
+Another way of handling wrong data is to remove the rows that contains wrong data.
+
+This way you do not have to find out what to replace them with, and there is a good chance you do not need them to do your analyses.
+'''
+
+df=pd.read_csv('pandas-practice/data_dataframe/employee_data.csv')
+for x in df.index:
+    if df.loc[x,'age']<0:
+        df.drop(x,inplace=True)
+print(df)
+
+'''
+Discovering Duplicates
+Duplicate rows are rows that have been registered more than one time.
+
+To discover duplicates, we can use the duplicated() method.
+
+The duplicated() method returns a Boolean values for each row
+'''
+
+df=pd.read_csv('pandas-practice/data_dataframe/employee_data.csv')
+print(df.duplicated())
+
+'''
+Removing Duplicates
+To remove duplicates, use the drop_duplicates() method.
+'''
+df.drop_duplicates(inplace=True)
+print(df)
